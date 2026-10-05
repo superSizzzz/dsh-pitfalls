@@ -131,10 +131,14 @@ node scripts/rehearsal.mjs D:\repos\my-app EPERM      # 顺便换个查询词
 
 ## 收尾：格式检查
 
-改完文件必须跑（从本仓库目录执行）：
+提交前把格式收干净：统一 LF（见 `.gitattributes`）、行宽 120 以内、行尾无空白、文件末尾
+留一个换行。
+
+本仓库开发时所在的工作区里有一个 `code-format-guard` 技能，用它扫本次改动最省事：
 
 ```powershell
-node ..\.dsh\skills\code-format-guard\scripts\check_format.mjs --changed
+node <工作区>/.dsh/skills/code-format-guard/scripts/check_format.mjs --changed
 ```
 
-要求 0 error；行宽警告（默认上限 120）也一并收掉，本仓库一直保持 0 warning。
+要求 0 error；行宽这类 warning 也一并收掉，本仓库一直保持 0 warning。手边没有这个工具，
+就按上面那几条自查。
