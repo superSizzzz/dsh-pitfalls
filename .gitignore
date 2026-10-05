@@ -1,0 +1,15 @@
+# 依赖由 dsh 提供，node_modules 是 scripts/link-deps.mjs 建的软链，不入库。
+node_modules/
+
+# 编译产物（dsh 直接吃 src/*.ts，lib 只在发布 npm 包时用）。
+lib/
+
+# 排查产生的本地痕迹。
+*.log
+test/.tmp/
+
+# 编辑器与系统垃圾。
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

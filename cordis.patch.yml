@@ -1,0 +1,17 @@
+# 本插件自带的挂载声明。
+#
+# dsh 通过 package.json 的 `dsh.bundle.patch` 找到这个文件，所以
+# `dsh plugin --profile web add dsh-pitfalls` 装完就是一个 profile layer，
+# 不需要用户手改自己的 ~/.dsh/cordis.patch.yml。
+#
+# 本地 checkout 开发时走另一条路（见 README「安装」）：在 profile 的
+# cordis.patch.yml 里 insert 一条 `name: 'file:///…/src/index.ts'`，
+# profile 默认 patchReload: live，保存即热重载。
+#
+# 想改开关（failureStreak / dir / systemPromptSection 等）时，在你自己的
+# patch 层写同 id 的条目覆盖即可 —— 上层覆盖下层。
+- insert:
+  - id: pitfalls
+    name: 'dsh-pitfalls'
+    config:
+      enabled: true

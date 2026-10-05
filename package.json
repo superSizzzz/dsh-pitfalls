@@ -1,0 +1,70 @@
+{
+  "name": "dsh-pitfalls",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness 插件：把工作中踩过的坑记成可检索的档案（现象 / 怎么踩进去的 / 怎么解决），下次遇到同类问题先翻历史",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "pitfalls",
+    "lessons-learned",
+    "knowledge-base"
+  ],
+  "license": "MIT",
+  "author": "superSizzzz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superSizzzz/dsh-pitfalls.git"
+  },
+  "bugs": {
+    "url": "https://github.com/superSizzzz/dsh-pitfalls/issues"
+  },
+  "homepage": "https://github.com/superSizzzz/dsh-pitfalls#readme",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./store": "./src/store.ts",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.7-rc.2"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "link": "node scripts/link-deps.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run test:core && npm run test:smoke",
+    "test:core": "node test/store.test.mjs && node test/detector.test.mjs && node test/library.test.mjs",
+    "test:smoke": "node test/plugin.smoke.mjs"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "test",
+    "docs",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-agent": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "devDependencies": {
+    "@types/node": ">=22.0.0",
+    "typescript": ">=5.7.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+
+    "rootDir": "src",
+    "outDir": "lib",
+    "declaration": true,
+
+    // 源码里的相对导入带 .ts 扩展名（Node 的类型擦除要求这样写）；
+    // 这个选项让 tsc 输出时改写成 .js，一份源码同时服务两种加载方式。
+    "rewriteRelativeImportExtensions": true,
+    "verbatimModuleSyntax": true,
+
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts"]
+}
